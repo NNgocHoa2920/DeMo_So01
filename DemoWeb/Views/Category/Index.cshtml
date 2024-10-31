@@ -1,0 +1,73 @@
+﻿@* @model IEnumerable<DemoWeb.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  HI=item.Ma }) |
+                    @Html.ActionLink("Details", "Details", new { HI = item.Ma }) |
+                    @Html.ActionLink("Delete", "Delete", new { HI = item.Ma })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+ @model Category;
+
+<h2>Mời bạn nhập vào form rồi submit</h2>
+
+@{
+    if (Model != null)
+    {
+        <h3 class="p-3 mb-2 bg-success text-white">Category la
+        @Model.Ma, @Model.Name, @Model.Description</h3>
+    }
+}
+
+<form method="post">
+    <div class="form-group">
+        <label>Id:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="form-group">
+        <label>Name:</label>
+        <input class="form-control" name="name" />
+    </div>
+    <div class="m-1">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>

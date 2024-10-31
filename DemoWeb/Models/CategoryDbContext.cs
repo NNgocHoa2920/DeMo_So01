@@ -18,6 +18,9 @@ namespace DemoWeb.Models
         {
         }
 
+        //DBSET: Đại diện cho 1 thực thể/ đại diện cho 1 bảng ở trong sql
+        //khi muốn chạm tới csdl thì phải . tới db set chứ không phải class
+        public DbSet<Category> Categories { get; set; }
 
         //cách 1: dán chuỗi kết nối vào đây
 
